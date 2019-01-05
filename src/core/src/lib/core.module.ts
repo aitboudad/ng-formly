@@ -7,7 +7,6 @@ import { FormlyConfig, ConfigOption, FORMLY_CONFIG } from './services/formly.con
 import { FormlyFormBuilder } from './services/formly.form.builder';
 import { FormlyGroup } from './components/formly.group';
 import { FormlyValidationMessage } from './templates/formly.validation-message';
-import { FormlyTemplateType } from './templates/field-template.type';
 
 import { FieldExpressionExtension } from './extensions/field-expression/field-expression';
 import { FieldValidationExtension } from './extensions/field-validation/field-validation';
@@ -18,7 +17,6 @@ export function defaultFormlyConfig(formlyConfig: FormlyConfig): ConfigOption {
   return {
     types: [
       { name: 'formly-group', component: FormlyGroup },
-      { name: 'formly-template', component: FormlyTemplateType },
     ],
     extensions: [
       { name: 'core', extension: new CoreExtension(formlyConfig) },
@@ -36,9 +34,8 @@ export function defaultFormlyConfig(formlyConfig: FormlyConfig): ConfigOption {
     FormlyAttributes,
     FormlyGroup,
     FormlyValidationMessage,
-    FormlyTemplateType,
   ],
-  entryComponents: [FormlyGroup, FormlyTemplateType],
+  entryComponents: [FormlyGroup],
   exports: [FormlyForm, FormlyField, FormlyAttributes, FormlyGroup, FormlyValidationMessage],
   imports: [CommonModule],
 })

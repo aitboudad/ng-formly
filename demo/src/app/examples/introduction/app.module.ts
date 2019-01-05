@@ -6,12 +6,14 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
 import { AppComponent } from './app.component';
 import { FormlyFieldCustomInput } from './custom-input.component';
+import { FormlyTemplateFieldModule } from '@ngx-formly/core/template-field';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormlyBootstrapModule,
+    FormlyTemplateFieldModule,
     FormlyModule.forRoot({
       validationMessages: [
         { name: 'required', message: 'This field is required' },

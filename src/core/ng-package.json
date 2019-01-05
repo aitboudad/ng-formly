@@ -5,6 +5,7 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "select": [{ "path": "select" }],
+    "template-field": [{ "path": "template-field" }],
     "json-schema": [{ "path": "json-schema" }]
   }
 }

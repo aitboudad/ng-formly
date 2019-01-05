@@ -1,4 +1,4 @@
-import { Injectable, InjectionToken, ComponentRef, ComponentFactoryResolver } from '@angular/core';
+import { Injectable, InjectionToken, ComponentRef, ComponentFactoryResolver, Type } from '@angular/core';
 import { ValidationErrors, FormGroup, FormArray, AbstractControl } from '@angular/forms';
 import { FieldType } from './../templates/field.type';
 import { reverseDeepMerge, defineHiddenProp } from './../utils';
@@ -82,7 +82,15 @@ export class FormlyConfig {
     }
   }
 
-  getType(name: string): TypeOption {
+  getType(name: string | Type<any>): TypeOption {
+    if (name instanceof Type) {
+      const component = name;
+      return {
+        component,
+        name: component.constructor.name,
+      };
+    }
+
     if (!this.types[name]) {
       throw new Error(`[Formly Error] There is no type by the name of "${name}"`);
     }

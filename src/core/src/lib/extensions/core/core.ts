@@ -72,13 +72,6 @@ export class CoreExtension implements FormlyExtension {
       }, field.templateOptions);
     }
 
-    if (field.template && field.type !== 'formly-template') {
-      if (field.type) {
-        console.warn(`NgxFormly: passing 'type' property is not allowed when 'template' is set.`);
-      }
-      field.type = 'formly-template';
-    }
-
     if (field.type) {
       this.formlyConfig.getMergedField(field);
     }
